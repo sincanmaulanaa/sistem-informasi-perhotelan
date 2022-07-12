@@ -1,30 +1,17 @@
 package com.company;
 
 import java.util.Scanner;
-import java.io.*;
 
 public class Main {
 
 	// create data array
+	static String[] kamar = { "Room 1", "Room 2", "Room 3", "Room 4", "Room 5" };
 	static String[] penyewa = { "sincan", "aldi", "bahtiar" };
+	static Integer[] hargaPenyewa = { 100000, 200000, 300000, 400000, 500000 };
 
-	// getData method
-	public static void getData() {
-		String fileName = "C:\\Users\\vince\\IdeaProjects\\sistem-informasi-perhotelan\\src\\com\\company\\data.txt";
-
-		try {
-			// membaca file
-			File myFile = new File(fileName);
-			try (Scanner fileReader = new Scanner(myFile)) {
-				// cetak isi file
-				while (fileReader.hasNextLine()) {
-					String data = fileReader.nextLine();
-					System.out.println(data);
-				}
-			}
-		} catch (FileNotFoundException ex) {
-			System.out.println("Terjadi kesalahan: " + ex.getMessage());
-			ex.printStackTrace();
+	public static void penyewa() {
+		for (int i = 0; i < penyewa.length; i++) {
+			System.out.println("Nama Penyewa: " + penyewa[i]);
 		}
 	}
 
@@ -44,10 +31,7 @@ public class Main {
 				rooms();
 				break;
 			case 2:
-				// call array penyewa
-				for (int i = 0; i < penyewa.length; i++) {
-					System.out.println("Nama Penyewa: " + penyewa[i]);
-				}
+				penyewa();
 				break;
 			case 3:
 				System.out.println("Data Transaksi");
@@ -62,7 +46,11 @@ public class Main {
 	public static void rooms() {
 		System.out.println("");
 		System.out.println("========= DATA KAMAR =========");
-		getData();
+		// call array kamar
+		for (int i = 0; i < kamar.length; i++) {
+			// show data rooms
+			System.out.println(kamar[i]);
+		}
 
 	}
 
