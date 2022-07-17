@@ -1,11 +1,7 @@
-========= PEMBAYARAN =========
-Nomor Kamar		: 3
+========= TRANSAKSI ===========
+Nama			: SincanMaulana
 Jenis Kamar		: Suite
 Hari			: 10
-Nomor KTP		: 21533410
-Nama			: SincanMaulana
-Alamat			: Ponorogo
-Nomor Telepon	: 08515771899
 
 --------------------------------
 TOTAL TAGIHAN: 3000000 IDR / 10 hari
@@ -13,14 +9,10 @@ TOTAL TAGIHAN: 3000000 IDR / 10 hari
 --------------------------------
 ===============================
 
-========= PEMBAYARAN =========
-Nomor Kamar		: 1
+========= TRANSAKSI ===========
+Nama			: AldiIndra
 Jenis Kamar		: Single
 Hari			: 2
-Nomor KTP		: 27823782
-Nama			: AldiIndra
-Alamat			: Surabaya
-Nomor Telepon	: 08198329423
 
 --------------------------------
 TOTAL TAGIHAN: 350000 IDR / 2 hari

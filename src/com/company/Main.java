@@ -6,6 +6,7 @@ import java.io.*;
 public class Main {
 	static Scanner input = new Scanner(System.in);
 	static int role, menu;
+	static int totalTerisi, totalKosong, totalDibooking;
 	static int nomorKamar;
 	static String room, singleRoom = "Single", doubleRoom = "Double", suiteRoom = "Suite";
 	static int singelRoomPrice = 175000, doubleRoomPrice = 225000, suiteRoomPrice = 300000, hari, totalPembayaran;
@@ -54,6 +55,92 @@ public class Main {
 	static void admin() {
 		print("====== SELAMAT DATANG! ADMIN ======");
 		print("======= SILAHKAN PILIH MENU =======");
+		print("1. Data Kamar");
+		print("2. Data Penyewa");
+		print("3. Data Transaksi");
+		print("4. Logout");
+		System.out.print("Pilih menu : ");
+		menu = input.nextInt();
+		print("===================================\n");
+		switch (menu) {
+			case 1:
+				getKamar();
+				break;
+			case 2:
+				getPenyewa();
+				break;
+			case 3:
+				getTransaksi();
+				break;
+			case 4:
+				portal();
+				break;
+			default:
+				print("Pilihan tidak ada");
+				admin();
+				break;
+		}
+
+	}
+
+	static void getKamar() {
+		// read data from file
+		try {
+			File file = new File(
+					"C:\\Users\\vince\\IdeaProjects\\sistem-informasi-perhotelan\\src\\com\\company\\dataKamar.txt");
+			Scanner input = new Scanner(file);
+			while (input.hasNext()) {
+				print(input.nextLine());
+			}
+			input.close();
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		print("===================================\n");
+
+		admin();
+	}
+
+	static void getPenyewa() {
+		// read data from file with buffered reader
+		try {
+			File file = new File(
+					"C:\\Users\\vince\\IdeaProjects\\sistem-informasi-perhotelan\\src\\com\\company\\dataPenyewa.txt");
+			BufferedReader input = new BufferedReader(new FileReader(file));
+			String line;
+			while ((line = input.readLine()) != null) {
+				print(line);
+			}
+			input.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		print("===================================\n");
+		admin();
+
+	}
+
+	static void getTransaksi() {
+		// read data from dataTransaksi.txt
+		try {
+			File file = new File(
+					"C:\\Users\\vince\\IdeaProjects\\sistem-informasi-perhotelan\\src\\com\\company\\dataTransaksi.txt");
+			Scanner input = new Scanner(file);
+			while (input.hasNext()) {
+				print(input.nextLine());
+			}
+			input.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		print("===================================\n");
+		admin();
 	}
 
 	static void penyewa() {
@@ -227,6 +314,46 @@ public class Main {
 					}
 				}
 			}
+
+			// write data to dataTransaksi.txt
+			BufferedWriter bw2 = null;
+			try {
+				bw2 = new BufferedWriter(new FileWriter(
+						"C:\\Users\\vince\\IdeaProjects\\sistem-informasi-perhotelan\\src\\com\\company\\dataTransaksi.txt",
+						true));
+				bw2.write("========= TRANSAKSI ===========");
+				bw2.newLine();
+				bw2.write("Nama\t\t\t: " + nama);
+				bw2.newLine();
+				bw2.write("Jenis Kamar\t\t: " + room);
+				bw2.newLine();
+				bw2.write("Hari\t\t\t: " + hari);
+				bw2.newLine();
+				if (nomorKamar == 1) {
+					totalPembayaran = singelRoomPrice * hari;
+				} else if (nomorKamar == 2) {
+					totalPembayaran = doubleRoomPrice * hari;
+				} else if (nomorKamar == 3) {
+					totalPembayaran = suiteRoomPrice * hari;
+				}
+				bw2.write("\n--------------------------------\n");
+				bw2.write("TOTAL TAGIHAN: " + totalPembayaran + " IDR" + " / " + hari + " hari");
+				bw2.newLine();
+				bw2.write("\n--------------------------------\n");
+				bw2.write("===============================\n");
+				bw2.newLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				if (bw2 != null) {
+					try {
+						bw2.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
 		}
 
 	}
