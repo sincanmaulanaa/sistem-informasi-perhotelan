@@ -9,6 +9,7 @@ public class Main {
 	static int nomorKamar;
 	static String room, singleRoom = "Single", doubleRoom = "Double", suiteRoom = "Suite";
 	static int singelRoomPrice = 175000, doubleRoomPrice = 225000, suiteRoomPrice = 300000, hari, totalPembayaran;
+	static boolean sudahDibayar;
 	static String noKtp, nama, alamat, noTelp;
 
 	static void print(String s) {
@@ -163,52 +164,67 @@ public class Main {
 		}
 		print("\n--------------------------------\n");
 		print("TOTAL TAGIHAN ANDA: " + totalPembayaran + " IDR" + " / " + hari + " hari");
+		System.out.print("Bayar sesuai tagihan\t\t: ");
+		int bayar = input.nextInt();
+		if (bayar != totalPembayaran) {
+			print("Uang Anda tidak cukup!");
+			sudahDibayar = false;
+			sewaKamar();
+		} else {
+			sudahDibayar = true;
+			print("Pembayaran Anda berhasil!");
+			print("\n========================================\n");
+			print("Terima kasih telah menginap di Hotel kami.");
+			print("\n========================================\n");
+		}
 		print("\n--------------------------------\n");
 		print("===============================\n");
 
 		// write data to file
-		BufferedWriter bw = null;
-		try {
-			bw = new BufferedWriter(new FileWriter(
-					"C:\\Users\\vince\\IdeaProjects\\sistem-informasi-perhotelan\\src\\com\\company\\dataPenyewa.txt",
-					true));
-			bw.write("========= PEMBAYARAN =========");
-			bw.newLine();
-			bw.write("Nomor Kamar\t\t: " + nomorKamar);
-			bw.newLine();
-			bw.write("Jenis Kamar\t\t: " + room);
-			bw.newLine();
-			bw.write("Hari\t\t\t: " + hari);
-			bw.newLine();
-			bw.write("Nomor KTP\t\t: " + noKtp);
-			bw.newLine();
-			bw.write("Nama\t\t\t: " + nama);
-			bw.newLine();
-			bw.write("Alamat\t\t\t: " + alamat);
-			bw.newLine();
-			bw.write("Nomor Telepon\t: " + noTelp);
-			bw.newLine();
-			if (nomorKamar == 1) {
-				totalPembayaran = singelRoomPrice * hari;
-			} else if (nomorKamar == 2) {
-				totalPembayaran = doubleRoomPrice * hari;
-			} else if (nomorKamar == 3) {
-				totalPembayaran = suiteRoomPrice * hari;
-			}
-			bw.write("\n--------------------------------\n");
-			bw.write("TOTAL TAGIHAN: " + totalPembayaran + " IDR" + " / " + hari + " hari");
-			bw.newLine();
-			bw.write("\n--------------------------------\n");
-			bw.write("===============================\n");
-			bw.newLine();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (bw != null) {
-				try {
-					bw.close();
-				} catch (IOException e) {
-					e.printStackTrace();
+		if (sudahDibayar == true) {
+			BufferedWriter bw = null;
+			try {
+				bw = new BufferedWriter(new FileWriter(
+						"C:\\Users\\vince\\IdeaProjects\\sistem-informasi-perhotelan\\src\\com\\company\\dataPenyewa.txt",
+						true));
+				bw.write("========= PEMBAYARAN =========");
+				bw.newLine();
+				bw.write("Nomor Kamar\t\t: " + nomorKamar);
+				bw.newLine();
+				bw.write("Jenis Kamar\t\t: " + room);
+				bw.newLine();
+				bw.write("Hari\t\t\t: " + hari);
+				bw.newLine();
+				bw.write("Nomor KTP\t\t: " + noKtp);
+				bw.newLine();
+				bw.write("Nama\t\t\t: " + nama);
+				bw.newLine();
+				bw.write("Alamat\t\t\t: " + alamat);
+				bw.newLine();
+				bw.write("Nomor Telepon\t: " + noTelp);
+				bw.newLine();
+				if (nomorKamar == 1) {
+					totalPembayaran = singelRoomPrice * hari;
+				} else if (nomorKamar == 2) {
+					totalPembayaran = doubleRoomPrice * hari;
+				} else if (nomorKamar == 3) {
+					totalPembayaran = suiteRoomPrice * hari;
+				}
+				bw.write("\n--------------------------------\n");
+				bw.write("TOTAL TAGIHAN: " + totalPembayaran + " IDR" + " / " + hari + " hari");
+				bw.newLine();
+				bw.write("\n--------------------------------\n");
+				bw.write("===============================\n");
+				bw.newLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				if (bw != null) {
+					try {
+						bw.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 				}
 			}
 		}

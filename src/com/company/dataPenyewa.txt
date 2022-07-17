@@ -28,3 +28,18 @@ TOTAL TAGIHAN: 450000 IDR / 2 hari
 --------------------------------
 ===============================
 
+========= PEMBAYARAN =========
+Nomor Kamar		: 1
+Jenis Kamar		: Single
+Hari			: 10
+Nomor KTP		: 21533410
+Nama			: AldiIndra
+Alamat			: Surabaya
+Nomor Telepon	: 081978675645
+
+--------------------------------
+TOTAL TAGIHAN: 1750000 IDR / 10 hari
+
+--------------------------------
+===============================
+
