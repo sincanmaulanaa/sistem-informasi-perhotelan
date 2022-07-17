@@ -1,0 +1,15 @@
+========= DOUBLE ROOM =========
+Nomor Kamar		: 2
+Jenis Kamar		: Double
+Hari			: 5
+Nomor KTP		: 232432
+Nama			: sincan
+Alamat			: ponorog
+Nomor Telepon	: 2343243
+
+--------------------------------
+TOTAL TAGIHAN: 1125000 IDR / 5 hari
+
+--------------------------------
+===============================
+
