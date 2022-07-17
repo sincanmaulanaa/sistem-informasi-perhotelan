@@ -1,0 +1,30 @@
+========= PEMBAYARAN =========
+Nomor Kamar		: 3
+Jenis Kamar		: Suite
+Hari			: 5
+Nomor KTP		: 21533410
+Nama			: SincanMaulana
+Alamat			: Ponorogo
+Nomor Telepon	: 085157711068
+
+--------------------------------
+TOTAL TAGIHAN: 1500000 IDR / 5 hari
+
+--------------------------------
+===============================
+
+========= PEMBAYARAN =========
+Nomor Kamar		: 2
+Jenis Kamar		: Double
+Hari			: 2
+Nomor KTP		: 21533444
+Nama			: BahtiarRifai
+Alamat			: Ponorogo
+Nomor Telepon	: 08198819191
+
+--------------------------------
+TOTAL TAGIHAN: 450000 IDR / 2 hari
+
+--------------------------------
+===============================
+

@@ -7,7 +7,7 @@ public class Main {
 	static Scanner input = new Scanner(System.in);
 	static int role, menu;
 	static int nomorKamar;
-	static String singleRoom = "Single", doubleRoom = "Double", suiteRoom = "Suite";
+	static String room, singleRoom = "Single", doubleRoom = "Double", suiteRoom = "Suite";
 	static int singelRoomPrice = 175000, doubleRoomPrice = 225000, suiteRoomPrice = 300000, hari, totalPembayaran;
 	static String noKtp, nama, alamat, noTelp;
 
@@ -106,15 +106,18 @@ public class Main {
 		print("\n---------------------------\n");
 		switch (nomorKamar) {
 			case 1:
-				print("Anda memilih " + singleRoom);
+				room = singleRoom;
+				print("Anda memilih " + room);
 				print("Harga perhari: " + singelRoomPrice);
 				break;
 			case 2:
-				print("Kamar " + nomorKamar + " " + doubleRoom);
+				room = doubleRoom;
+				print("Anda memilih " + room);
 				print("Harga perhari: " + doubleRoomPrice);
 				break;
 			case 3:
-				print("Kamar " + nomorKamar + " " + suiteRoom);
+				room = suiteRoom;
+				print("Anda memilih " + room);
 				print("Harga perhari: " + suiteRoomPrice);
 				break;
 			default:
@@ -124,19 +127,19 @@ public class Main {
 		}
 		print("\n---------------------------");
 
-		System.out.print("Ingin menginap berapa hari: ");
+		System.out.print("Ingin menginap berapa hari\t: ");
 		hari = input.nextInt();
 
-		System.out.print("Masukkan nomor KTP: ");
+		System.out.print("Masukkan nomor KTP\t\t: ");
 		noKtp = input.next();
 
-		System.out.print("Masukkan nama: ");
+		System.out.print("Masukkan nama\t\t\t: ");
 		nama = input.next();
 
-		System.out.print("Masukkan alamat: ");
+		System.out.print("Masukkan alamat\t\t\t: ");
 		alamat = input.next();
 
-		System.out.print("Masukkan nomor telepon: ");
+		System.out.print("Masukkan nomor telepon\t\t: ");
 		noTelp = input.next();
 
 		// create separator for better readability
@@ -144,12 +147,13 @@ public class Main {
 
 		// print data
 		print("========= PEMBAYARAN =========");
-		print("Nomor Kamar: " + nomorKamar);
-		print("Hari: " + hari);
-		print("Nomor KTP: " + noKtp);
-		print("Nama: " + nama);
-		print("Alamat: " + alamat);
-		print("Nomor Telepon: " + noTelp);
+		print("Nomor Kamar\t: " + nomorKamar);
+		print("Jenis Kamar\t: " + room);
+		print("Hari\t\t: " + hari);
+		print("Nomor KTP\t: " + noKtp);
+		print("Nama\t\t: " + nama);
+		print("Alamat\t\t: " + alamat);
+		print("Nomor Telepon\t: " + noTelp);
 		if (nomorKamar == 1) {
 			totalPembayaran = singelRoomPrice * hari;
 		} else if (nomorKamar == 2) {
@@ -166,21 +170,23 @@ public class Main {
 		BufferedWriter bw = null;
 		try {
 			bw = new BufferedWriter(new FileWriter(
-					"C:\\Users\\vince\\IdeaProjects\\sistem-informasi-perhotelan\\src\\com\\company\\dataPembayaran.txt",
+					"C:\\Users\\vince\\IdeaProjects\\sistem-informasi-perhotelan\\src\\com\\company\\dataPenyewa.txt",
 					true));
 			bw.write("========= PEMBAYARAN =========");
 			bw.newLine();
-			bw.write("Nomor Kamar: " + nomorKamar);
+			bw.write("Nomor Kamar\t\t: " + nomorKamar);
 			bw.newLine();
-			bw.write("Hari: " + hari);
+			bw.write("Jenis Kamar\t\t: " + room);
 			bw.newLine();
-			bw.write("Nomor KTP: " + noKtp);
+			bw.write("Hari\t\t\t: " + hari);
 			bw.newLine();
-			bw.write("Nama: " + nama);
+			bw.write("Nomor KTP\t\t: " + noKtp);
 			bw.newLine();
-			bw.write("Alamat: " + alamat);
+			bw.write("Nama\t\t\t: " + nama);
 			bw.newLine();
-			bw.write("Nomor Telepon: " + noTelp);
+			bw.write("Alamat\t\t\t: " + alamat);
+			bw.newLine();
+			bw.write("Nomor Telepon\t: " + noTelp);
 			bw.newLine();
 			if (nomorKamar == 1) {
 				totalPembayaran = singelRoomPrice * hari;
@@ -190,10 +196,11 @@ public class Main {
 				totalPembayaran = suiteRoomPrice * hari;
 			}
 			bw.write("\n--------------------------------\n");
-			bw.write("TOTAL TAGIHAN ANDA: " + totalPembayaran + " IDR" + " / " + hari + " hari");
+			bw.write("TOTAL TAGIHAN: " + totalPembayaran + " IDR" + " / " + hari + " hari");
 			bw.newLine();
 			bw.write("\n--------------------------------\n");
 			bw.write("===============================\n");
+			bw.newLine();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
