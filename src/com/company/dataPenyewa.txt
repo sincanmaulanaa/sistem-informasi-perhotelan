@@ -28,3 +28,18 @@ TOTAL TAGIHAN: 350000 IDR / 2 hari
 --------------------------------
 ===============================
 
+========= PEMBAYARAN =========
+Nomor Kamar		: 3
+Jenis Kamar		: Suite
+Hari			: 10
+Nomor KTP		: 283749832
+Nama			: sincan
+Alamat			: ponorogo
+Nomor Telepon	: 0819823822
+
+--------------------------------
+TOTAL TAGIHAN: 3000000 IDR / 10 hari
+
+--------------------------------
+===============================
+

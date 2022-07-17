@@ -64,7 +64,7 @@ public class Main {
 		print("===================================\n");
 		switch (menu) {
 			case 1:
-				getKamar();
+				roomType();
 				break;
 			case 2:
 				getPenyewa();
@@ -81,6 +81,35 @@ public class Main {
 				break;
 		}
 
+	}
+
+	static void roomType() {
+		print("======= PILIH TIPE KAMAR =======");
+		print("1. Seluruh Data Kamar");
+		print("2. Data Single");
+		print("3. Data Double");
+		print("4. Data Suite");
+		System.out.print("Pilih tipe kamar : ");
+		menu = input.nextInt();
+		print("===================================\n");
+		switch (menu) {
+			case 1:
+				getKamar();
+				break;
+			case 2:
+				getSingle();
+				break;
+			case 3:
+				getDouble();
+				break;
+			case 4:
+				getSuite();
+				break;
+			default:
+				print("Pilihan tidak ada");
+				roomType();
+				break;
+		}
 	}
 
 	static void getKamar() {
@@ -141,6 +170,60 @@ public class Main {
 
 		print("===================================\n");
 		admin();
+	}
+
+	static void getSingle() {
+		// read data from file with buffered reader
+		try {
+			File file = new File(
+					"C:\\Users\\vince\\IdeaProjects\\sistem-informasi-perhotelan\\src\\com\\company\\room\\single.txt");
+			BufferedReader input = new BufferedReader(new FileReader(file));
+			String line;
+			while ((line = input.readLine()) != null) {
+				print(line);
+			}
+			input.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	static void getDouble() {
+		// read data from file with buffered reader
+		try {
+			File file = new File(
+					"C:\\Users\\vince\\IdeaProjects\\sistem-informasi-perhotelan\\src\\com\\company\\room\\double.txt");
+			BufferedReader input = new BufferedReader(new FileReader(file));
+			String line;
+			while ((line = input.readLine()) != null) {
+				print(line);
+			}
+			input.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	static void getSuite() {
+		// read data from file with buffered reader
+		try {
+			File file = new File(
+					"C:\\Users\\vince\\IdeaProjects\\sistem-informasi-perhotelan\\src\\com\\company\\room\\suite.txt");
+			BufferedReader input = new BufferedReader(new FileReader(file));
+			String line;
+			while ((line = input.readLine()) != null) {
+				print(line);
+			}
+			input.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	static void penyewa() {
@@ -350,6 +433,149 @@ public class Main {
 						bw2.close();
 					} catch (IOException e) {
 						e.printStackTrace();
+					}
+				}
+			}
+
+			// if nomor kamar is 1
+			if (nomorKamar == 1) {
+				BufferedWriter bw3 = null;
+				try {
+					bw3 = new BufferedWriter(new FileWriter(
+							"C:\\Users\\vince\\IdeaProjects\\sistem-informasi-perhotelan\\src\\com\\company\\room\\single.txt",
+							true));
+					bw3.write("========= SINGLE ROOM =========");
+					bw3.newLine();
+					bw3.write("Nomor Kamar\t\t: " + nomorKamar);
+					bw3.newLine();
+					bw3.write("Jenis Kamar\t\t: " + room);
+					bw3.newLine();
+					bw3.write("Hari\t\t\t: " + hari);
+					bw3.newLine();
+					bw3.write("Nomor KTP\t\t: " + noKtp);
+					bw3.newLine();
+					bw3.write("Nama\t\t\t: " + nama);
+					bw3.newLine();
+					bw3.write("Alamat\t\t\t: " + alamat);
+					bw3.newLine();
+					bw3.write("Nomor Telepon\t: " + noTelp);
+					bw3.newLine();
+					if (nomorKamar == 1) {
+						totalPembayaran = singelRoomPrice * hari;
+					} else if (nomorKamar == 2) {
+						totalPembayaran = doubleRoomPrice * hari;
+					} else if (nomorKamar == 3) {
+						totalPembayaran = suiteRoomPrice * hari;
+					}
+					bw3.write("\n--------------------------------\n");
+					bw3.write("TOTAL TAGIHAN: " + totalPembayaran + " IDR" + " / " + hari + " hari");
+					bw3.newLine();
+					bw3.write("\n--------------------------------\n");
+					bw3.write("===============================\n");
+					bw3.newLine();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+					if (bw3 != null) {
+						try {
+							bw3.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			} else if (nomorKamar == 2) {
+				// write data to room/double.txt
+				BufferedWriter bw4 = null;
+				try {
+					bw4 = new BufferedWriter(new FileWriter(
+							"C:\\Users\\vince\\IdeaProjects\\sistem-informasi-perhotelan\\src\\com\\company\\room\\double.txt",
+							true));
+					bw4.write("========= DOUBLE ROOM =========");
+					bw4.newLine();
+					bw4.write("Nomor Kamar\t\t: " + nomorKamar);
+					bw4.newLine();
+					bw4.write("Jenis Kamar\t\t: " + room);
+					bw4.newLine();
+					bw4.write("Hari\t\t\t: " + hari);
+					bw4.newLine();
+					bw4.write("Nomor KTP\t\t: " + noKtp);
+					bw4.newLine();
+					bw4.write("Nama\t\t\t: " + nama);
+					bw4.newLine();
+					bw4.write("Alamat\t\t\t: " + alamat);
+					bw4.newLine();
+					bw4.write("Nomor Telepon\t: " + noTelp);
+					bw4.newLine();
+					if (nomorKamar == 1) {
+						totalPembayaran = singelRoomPrice * hari;
+					} else if (nomorKamar == 2) {
+						totalPembayaran = doubleRoomPrice * hari;
+					} else if (nomorKamar == 3) {
+						totalPembayaran = suiteRoomPrice * hari;
+					}
+					bw4.write("\n--------------------------------\n");
+					bw4.write("TOTAL TAGIHAN: " + totalPembayaran + " IDR" + " / " + hari + " hari");
+					bw4.newLine();
+					bw4.write("\n--------------------------------\n");
+					bw4.write("===============================\n");
+					bw4.newLine();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+					if (bw4 != null) {
+						try {
+							bw4.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			} else if (nomorKamar == 3) {
+				// write data to room/suite.txt
+				BufferedWriter bw5 = null;
+				try {
+					bw5 = new BufferedWriter(new FileWriter(
+							"C:\\Users\\vince\\IdeaProjects\\sistem-informasi-perhotelan\\src\\com\\company\\room\\suite.txt",
+							true));
+					bw5.write("========= SUITE ROOM =========");
+					bw5.newLine();
+					bw5.write("Nomor Kamar\t\t: " + nomorKamar);
+					bw5.newLine();
+					bw5.write("Jenis Kamar\t\t: " + room);
+					bw5.newLine();
+					bw5.write("Hari\t\t\t: " + hari);
+					bw5.newLine();
+					bw5.write("Nomor KTP\t\t: " + noKtp);
+					bw5.newLine();
+					bw5.write("Nama\t\t\t: " + nama);
+					bw5.newLine();
+					bw5.write("Alamat\t\t\t: " + alamat);
+					bw5.newLine();
+					bw5.write("Nomor Telepon\t: " + noTelp);
+					bw5.newLine();
+					if (nomorKamar == 1) {
+						totalPembayaran = singelRoomPrice * hari;
+					} else if (nomorKamar == 2) {
+						totalPembayaran = doubleRoomPrice * hari;
+					} else if (nomorKamar == 3) {
+						totalPembayaran = suiteRoomPrice * hari;
+					}
+					bw5.write("\n--------------------------------\n");
+					bw5.write("TOTAL TAGIHAN: " + totalPembayaran + " IDR" + " / " + hari + " hari");
+					bw5.newLine();
+					bw5.write("\n--------------------------------\n");
+					bw5.write("===============================\n");
+					bw5.newLine();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+					if (bw5 != null) {
+						try {
+							bw5.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
 					}
 				}
 			}
