@@ -1,0 +1,55 @@
+(PORTAL) : 1. USER > (input)
+		   2. ADMIN > (output)
+
+DATA KAMAR :
+		(input)
+		1. -
+
+		(output)
+		1. Menampilkan data kamar beserta statusnya (terisi/booking/kosong)
+		2. Menampilkan berapa jumlah kamar yang terisi, yang kosong, yang dibooking
+
+		
+DATA PENYEWA :
+		(input)
+		1. Memasukkan data penyewa seperti no KTP/SIM, nama, alamat dan no telepon
+
+		(output)
+		1. Menampilkan data penyewa termasuk kamar yang disewa
+		2. Menampilkan data summary penyewa yang sering menginap di hotel tersebut
+
+		
+DATA TRANSAKSI :
+		(input)
+		1. -
+
+		(output)
+		1. Menampilkan total transaksi yang dilakukan pada suatu waktu tertentu
+
+===========================================================================================================================
+
+1. DATA KAMAR (variabel):
+				1. status = [terisi, kosong, dibooking]
+				2. jenisKamar = [single => 175.000, double => 225.000, suite => 300.000]
+				3. totalTerisi, totalKosong, totalDibooking
+				4. kamar
+
+2. DATA PENYEWA (variabel):
+				1. tamu = [noKtp, nama, alamat, noTelp]
+
+3. DATA TRANSAKSI (variabel):
+				1. transaksi
+				2. totalTransaksi
+
+============================================================================================================================
+
+FLOWTEXT:
+	1. USER :
+		menu : a. Sewa kamar = show data kamar >> pesan kamar >> input data penyewa (nama, noKtp, alamat, dsb) >> single/double/suite >> checkout >> done (kembali ke portal).
+			   b. logout
+
+	2. ADMIN :
+		menu : a. kamar = show jumlah status kamar terisi/kosong/dibooking >> keluar.
+			   b. penyewa = show penyewa dengan kamar yang disewa dan show summary penyewa yang sering menginap dihotel >> 	keluar.
+			   c. transaksi = show total transaksi & show tranksaksi pada suatu tertentu (perbulan/pertahun) >> keluar.
+			   d. logout
