@@ -30,6 +30,7 @@ public class Main {
 		print("==== SILAHKAN PILIH ROLE ===");
 		print("1. Admin");
 		print("2. Penyewa");
+		print("3. Keluar");
 
 		System.out.print("Pilih role : ");
 		role = input.nextInt();
@@ -43,6 +44,9 @@ public class Main {
 				break;
 			case 2:
 				penyewa();
+				break;
+			case 3:
+				print("Terima kasih telah menggunakan aplikasi ini");
 				break;
 			default:
 				print("Pilihan tidak ada");
@@ -58,7 +62,7 @@ public class Main {
 		print("1. Data Kamar");
 		print("2. Data Penyewa");
 		print("3. Data Transaksi");
-		print("4. Logout");
+		print("4. Keluar");
 		System.out.print("Pilih menu : ");
 		menu = input.nextInt();
 		print("===================================\n");
@@ -89,6 +93,7 @@ public class Main {
 		print("2. Data Single");
 		print("3. Data Double");
 		print("4. Data Suite");
+		print("5. Kembali");
 		System.out.print("Pilih tipe kamar : ");
 		menu = input.nextInt();
 		print("===================================\n");
@@ -105,11 +110,15 @@ public class Main {
 			case 4:
 				getSuite();
 				break;
+			case 5:
+				admin();
+				break;
 			default:
 				print("Pilihan tidak ada");
 				roomType();
 				break;
 		}
+
 	}
 
 	static void getKamar() {
@@ -188,6 +197,8 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		roomType();
 	}
 
 	static void getDouble() {
@@ -206,6 +217,8 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		roomType();
 	}
 
 	static void getSuite() {
@@ -224,6 +237,8 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		roomType();
 	}
 
 	static void penyewa() {

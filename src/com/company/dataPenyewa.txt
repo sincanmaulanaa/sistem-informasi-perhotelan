@@ -58,3 +58,18 @@ TOTAL TAGIHAN: 1125000 IDR / 5 hari
 --------------------------------
 ===============================
 
+========= PEMBAYARAN =========
+Nomor Kamar		: 3
+Jenis Kamar		: Suite
+Hari			: 5
+Nomor KTP		: 8473298748
+Nama			: ihsanMaulana
+Alamat			: Ponrogoo
+Nomor Telepon	: 081989827982
+
+--------------------------------
+TOTAL TAGIHAN: 1500000 IDR / 5 hari
+
+--------------------------------
+===============================
+
