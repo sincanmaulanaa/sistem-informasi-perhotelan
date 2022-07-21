@@ -351,8 +351,12 @@ public class Main {
 		print("TOTAL TAGIHAN ANDA: " + totalPembayaran + " IDR" + " / " + hari + " hari");
 		System.out.print("Bayar sesuai tagihan\t\t: ");
 		int bayar = input.nextInt();
-		if (bayar != totalPembayaran) {
+		if (bayar < totalPembayaran) {
 			print("Uang Anda tidak cukup!");
+			sudahDibayar = false;
+			sewaKamar();
+		} else if (bayar > totalPembayaran) {
+			print("Uang Anda terlalu banyak!");
 			sudahDibayar = false;
 			sewaKamar();
 		} else {
